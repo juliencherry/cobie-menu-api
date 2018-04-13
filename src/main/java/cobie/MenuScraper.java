@@ -13,7 +13,7 @@ public class MenuScraper {
 
 	public List<MenuItem> getTodaysMenu() throws IOException {
 		Document document;
-		document = Jsoup.connect("https://www.cobie.de/speisekarte?wmode=transparenartt").get();
+		document = Jsoup.connect("http://www.cobie.de/speisekarte?wmode=transparenartt").get();
 
 		Element foodCarousel = document.body().selectFirst(".foodCarousel");
 		Elements days = foodCarousel.select("> div");

@@ -1,5 +1,6 @@
 package cobie;
 
+import com.google.gson.Gson;
 import org.springframework.web.bind.annotation.*;
 
 import java.io.IOException;
@@ -7,15 +8,15 @@ import java.io.IOException;
 @RestController
 public class MenuController {
 
-	@RequestMapping(value = "/", method = RequestMethod.GET)
+	@RequestMapping(value = "/menu/today", method = RequestMethod.GET, produces = "application/json")
 	public String menu() {
 		MenuScraper scraper = new MenuScraper();
+		Gson gson = new Gson();
 
 		try {
-			return scraper.getTodaysMenu().toString();
+			return gson.toJson(scraper.getTodaysMenu());
 		} catch (IOException e) {
-			// oh no!
+			return "{\"response\": \"500\"}";
 		}
-		return "500";
 	}
 }
