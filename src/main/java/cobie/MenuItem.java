@@ -1,3 +1,5 @@
+package cobie;
+
 public class MenuItem {
 
 	private String title;
