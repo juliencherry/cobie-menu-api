@@ -18,7 +18,7 @@ public class MenuController {
 			return gson.toJson(scraper.getTodaysMenu());
 		} catch (IOException e) {
 			response.setStatus(500);
-			return "{\"response\": \"500\"}";
+			return "{\"response\": \"Could not get today’s menu from Cobie H2O\"}";
 		}
 	}
 }
